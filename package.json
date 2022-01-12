@@ -4,6 +4,7 @@
   "scripts": {
     "clean": "pnpx del dist",
     "serve": "ELEVENTY_ENV=dev pnpx eleventy --serve",
+    "tail": "pnpx tailwindcss -i ./src/assets/input.css -o ./dist/assets/output.css --watch",
     "start": "pnpm run serve",
     "prebuild": "pnpm run clean",
     "build": "ELEVENTY_ENV=dev pnpx eleventy",
