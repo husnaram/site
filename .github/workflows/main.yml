@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    # Add [skip-ci] in commit / PR message
+    if: "!contains(github.event.head_commit.message, '[skip-ci]')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+
+      # if you run build in multiple branches or OS,
+      # you might need more sophicated key and restore key
+      # check https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows#example-using-the-cache-action
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6
+          run_install: true
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.13.0
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build & deploy
+        run: pnpm run deploy
+        env:
+          CI: true
+          # remember to add YOUR_SECRET in settings > secrets
+          # generate the Firebase token from your machine
+          # using command: npx firebase login:ci
+          # refer to https://github.com/firebase/firebase-tools#using-with-ci-systems
+          FIREBASE_TOKEN: ${{ secrets.YOUR_SECRET }}
