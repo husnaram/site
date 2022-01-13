@@ -1,0 +1,28 @@
+{% extends "base.layout.njk" %}
+
+{% block main %}
+<div class="dark:text-white">
+	<h2 class="font-black text-4xl tracking-tight">Code Snippets</h2>
+	<p class="mt-4 mb-10">
+		These are a collection of code snippets I've used in the past and saved.
+		Some are Serverless Functions, which include set up instructions. Others
+		are anything from random CSS snippets to Node.js scripts.
+	</p>
+
+	<div>
+		<div class="grid w-full grid-cols-1 gap-4 my-2 mt-4 sm:grid-cols-2">
+			{% for snippet in collections.snippets %}
+			<a
+				class="border-[2px] border-emerald-400 rounded p-4 w-full bg-white dark:bg-transparent"
+				href="{{ snippet.url }}"
+			>
+				<h3 class="text-lg font-bold text-left">
+					{{ snippet.data.title }}
+				</h3>
+				<p class="mt-1">{{ snippet.data.sub }}</p>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}

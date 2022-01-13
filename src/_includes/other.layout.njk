@@ -1,0 +1,9 @@
+{% extends "base.layout.njk" %}
+{% block main %}
+	<article class="space-y-6 dark:text-white">
+		<h2 class="font-black text-3xl tracking-tight mb-4">{{ title }}</h2>
+		<div class="prose prose-slate dark:prose-invert dark:text-white">
+			{{ content | safe }}
+		</div>
+	</article>
+{% endblock %}

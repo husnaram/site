@@ -1,0 +1,121 @@
+---
+title: Home page
+desc: This is home page
+layout: base.layout.njk
+---
+
+{# REMOVEABLE: feel free to remove / replace any content on this page #}
+
+<div class="space-y-10 dark:text-white">
+	{# Recent Posts #}
+	<div class="space-y-6">
+		<h2 class="font-black text-2xl tracking-tight">recent blog posts</h2>
+		<div>
+			<ul>
+				{% for post in collections.blog %} {% if loop.index0 < 6 %}
+				<li class="border-b dark:border-gray-600">
+					<a
+						href="{{ post.url }}"
+						class="flex justify-between items-center py-2 hover:text-emerald-500 hover:font-bold"
+					>
+						<div class="flex items-center space-x-4">
+							<span class="text-gray-400">#</span>
+							<p>{{ post.data.title }}</p>
+						</div>
+						<time class="text-gray-400 text-sm"
+							>{{ post.data.date.toLocaleString('en-US', { year:
+							'numeric', month: 'long', day: 'numeric' }) }}</time
+						>
+					</a>
+				</li>
+				{% endif %} {% endfor %}
+			</ul>
+			<a
+				href="/blog"
+				class="inline-flex text-gray-600 dark:text-gray-400 py-4 hover:text-emerald-500 hover:font-bold"
+			>
+				<div class="space-x-1 flex items-center">
+					<p>all posts</p>
+					<span
+						><svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-5 w-5"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M17 8l4 4m0 0l-4 4m4-4H3"
+							/></svg
+					></span></div
+			></a>
+		</div>
+	</div>
+
+	{# Recent Projects #}
+	<div class="space-y-6">
+		<h2 class="font-black text-3xl tracking-tight">projects</h2>
+		<div>
+			<ul>
+				{% for project in collections.projects %} {% if loop.index0 < 5
+				%}
+				<li class="border-b dark:border-gray-600">
+					<a
+						href="{{ project.url }}"
+						class="flex items-center py-2 hover:text-emerald-500 hover:font-bold"
+					>
+						<div class="flex items-center space-x-4">
+							<span class="text-gray-400"
+								><svg
+									xmlns="http://www.w3.org/2000/svg"
+									class="h-4 w-4"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+										clip-rule="evenodd"
+									/></svg
+							></span>
+							<p>{{ project.data.title }}</p>
+						</div>
+					</a>
+				</li>
+				{% endif %} {% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	{# Familiar with #}
+	<div class="space-y-6">
+		<h2 class="font-black text-3xl tracking-tight">familiar with</h2>
+		<div>
+			<ul>
+				{% for skill in skills %}
+				<li class="border-b dark:border-gray-600">
+					<div class="flex justify-between items-center py-2">
+						<div class="flex items-center space-x-4">
+							<span class="text-gray-400"
+								><svg
+									xmlns="http://www.w3.org/2000/svg"
+									class="h-4 w-4"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+								>
+									<path
+										d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+									/></svg
+							></span>
+							<p>{{ skill }}</p>
+						</div>
+					</div>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>

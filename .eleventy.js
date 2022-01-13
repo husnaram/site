@@ -1,10 +1,10 @@
 module.exports = function (eleventyConfig) {
-  // Browsersync config
+
+  // set browser sync config to support .html clean url routing
   eleventyConfig.setBrowserSyncConfig(
-    // dist is our output directory
     require('./configs/browsersync.config')('dist')
   );
-
+  
   // set copy asset folder to dist
   eleventyConfig.addPassthroughCopy('assets');
 
@@ -12,6 +12,6 @@ module.exports = function (eleventyConfig) {
   return {
     dir: { input: 'src', output: 'dist' },
     dataTemplateEngine: 'njk',
-    markdownTemplateEngine: 'njk',
+    markdownTemplateEngine: 'njk'
   };
-};
+}
