@@ -20,7 +20,7 @@ module.exports = {
   siteName: 'Husna Ramadan',
   author: 'Husna',
   role: 'Backend Developer',
-  slogan: 'Write API web based with Node.js, Nest.js, or Adonis <br />on linux environment and not a fast learner.',
+  slogan: 'Writer of API web based with Node.js, Nest.js, or Adonis <br />on linux environment and not a fast learner.',
   environment,
   isProd,
   folder,
