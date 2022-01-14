@@ -4,7 +4,14 @@ const CleanCSS = require('clean-css');
 const { minify } = require('terser');
 const Image = require('@11ty/eleventy-img');
 
-function imageShortcode(src, alt, sizes = "(min-width: 30em) 50vw, 100vw", widths = [500, 600]) {
+const env = require('./src/_data/env');
+
+function imageShortcode(
+  src,
+  alt,
+  sizes = '(min-width: 30em) 50vw, 100vw',
+  widths = [500, 600]
+) {
   let options = {
     widths: widths,
     formats: ['webp', 'jpeg'],
@@ -38,7 +45,8 @@ module.exports = function (eleventyConfig) {
   );
 
   // set copy asset folder to dist
-  eleventyConfig.addPassthroughCopy('assets');
+  eleventyConfig.addPassthroughCopy(env.folder.assets);
+  eleventyConfig.addPassthroughCopy(`${env.folder.input}/favicon.ico`);
 
   // set up HTML minifier
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
@@ -74,8 +82,6 @@ module.exports = function (eleventyConfig) {
   );
 
   eleventyConfig.addShortcode('image', imageShortcode);
-  // eleventyConfig.addLiquidShortcode("image", imageShortcode);
-  // eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 
   // set input and output folder
   return {
