@@ -5,5 +5,5 @@
 @tailwind utilities;
 
 .prose img {
-	@apply mx-auto;
+	@apply mx-auto rounded-md;
 }

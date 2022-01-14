@@ -83,7 +83,9 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode('image', imageShortcode);
   
+  // add plugins
   eleventyConfig.addPlugin(require('@11ty/eleventy-plugin-rss'));
+  eleventyConfig.addPlugin(require('@11ty/eleventy-plugin-syntaxhighlight'));
 
   // set input and output folder
   return {

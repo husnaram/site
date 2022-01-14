@@ -12,7 +12,7 @@
         <p class="text-gray-600 dark:text-white">{{ env.author }} / <time class="text-gray-400 text-sm">{{ date.toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</time></p>
       </div>
     </div>
-    <div class="prose prose-slate dark:prose-invert dark:text-white">
+    <div class="w-full prose prose-slate dark:prose-invert dark:text-white">
       {{ content | safe }}
     </div>
   </article>
