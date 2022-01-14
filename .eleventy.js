@@ -41,7 +41,7 @@ function imageShortcode(
 module.exports = function (eleventyConfig) {
   // set browser sync config to support .html clean url routing
   eleventyConfig.setBrowserSyncConfig(
-    require('./configs/browsersync.config')('dist')
+    require('./configs/browsersync.config')(env.folder.output)
   );
 
   // set copy asset folder to dist
@@ -82,10 +82,12 @@ module.exports = function (eleventyConfig) {
   );
 
   eleventyConfig.addShortcode('image', imageShortcode);
+  
+  eleventyConfig.addPlugin(require('@11ty/eleventy-plugin-rss'));
 
   // set input and output folder
   return {
-    dir: { input: 'src', output: 'dist' },
+    dir: { input: env.folder.input, output: env.folder.output },
     dataTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
   };
