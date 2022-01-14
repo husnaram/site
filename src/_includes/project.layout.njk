@@ -1,13 +1,8 @@
-{% extends "base.layout.njk" %}
+{% extends "base.njk" %}
 
 {% block main %}
 <div class="dark:text-white">
-	<h2 class="font-black text-4xl tracking-tight">All Projects</h2>
-	<p class="mt-4 mb-10">
-		These are a collection of code snippets I've used in the past and saved.
-		Some are Serverless Functions, which include set up instructions. Others
-		are anything from random CSS snippets to Node.js scripts.
-	</p>
+	<h2 class="font-black text-4xl tracking-tight">{{ title }}</h2>
 
 	<div>
 		<div class="flex flex-col my-2 mt-4 space-y-6">

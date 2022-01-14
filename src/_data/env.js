@@ -1,6 +1,6 @@
 const environment = process.env.ELEVENTY_ENV;
 const PROD_ENV = 'prod';
-const prodUrl = 'https://your-production.url';
+const prodUrl = 'https://husnaram.site';
 const devUrl = 'http://localhost:8080';
 const baseUrl = environment === PROD_ENV ? prodUrl : devUrl;
 const isProd = environment === PROD_ENV;
@@ -17,8 +17,10 @@ const dir = {
 }
 
 module.exports = {
-  siteName: 'your site name',
-  author: 'your name',
+  siteName: 'Husna Ramadan',
+  author: 'Husna',
+  role: 'Backend Developer',
+  slogan: 'Write API web based with Node.js, Nest.js, or Adonis <br />on linux environment and not a fast learner.',
   environment,
   isProd,
   folder,
