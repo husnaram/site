@@ -47,4 +47,4 @@ jobs:
           # generate the Firebase token from your machine
           # using command: npx firebase login:ci
           # refer to https://github.com/firebase/firebase-tools#using-with-ci-systems
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SECRET }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
